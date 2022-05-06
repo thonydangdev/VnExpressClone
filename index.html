@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vnexpress</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+            integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+        />
+        <link rel="stylesheet" href="./styles/style.css" />
+        <link
+            rel="stylesheet"
+            href="./fonts/fontawesome-free-5.15.4-web/css/all.min.css"
+        />
+    </head>
+    <body>
+        <div class="app">
+            <header class="header">
+                <div class="grid wide header__top bdbt">
+                    <div class="header__top-left">
+                        <button class="btn-toggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="header__logo">
+                            <img
+                                src="https://s1.vnecdn.net/vnexpress/restruct/i/v588/v2_2019/pc/graphics/logo.svg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="dodge"></div>
+                        <span class="time">Thứ hai, 2/5/2022</span>
+                    </div>
+                    <div class="header__top-right">
+                        <a class="status bdgray"
+                            ><i class="far fa-clock"></i>Mới nhất</a
+                        >
+                        <a class="status bdgray"
+                            ><img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEWfIk7+/f3///+XADubCkSeHkycEUaWADanOl7GiZvUqrb37PCeFknRoq/Kmafw4ubIj6CpRGTBgpTbusP68/biyNC2ZX2XADqVADSZAD/o0djIkaHYsLyiJ1Pfv8mtSmvt2t+lMVmzYHq8c4mxWHStUG2+eo25bYT+Yi51AAAFGUlEQVR4nO3dfVuqPADHcRgMCR9Qj4SApZXa+3+Hh53uW3JMGzDZQ7/vv3nVPpcCxgZ4RFi5+Iw9S3t7r7JvFE/k273kEdU90P7RqAgX94TTuLCY91/hrLwpzCb2++roNrkhzLa6x6aqSSIUTgPdA1PXthQJTzPd41IXnQmErw69hfXupmoLV07sZf6Phi1hmuselNqKV144D3WPSW3RmRd+OLSfYdEVL9w7tRnWhbwwdk04gdD6ILS/jkIahUY2uz3qDkIaBsVxMTey5zAIbxzI5YXFKjkQc0t3x2KQkOZL9lPf2OrBJYFo7JJCys556Eb8FEnfBIOXFOaZ8T6fESd9heGTDcCaOG9vi1JCGpv/Ef2KHFvDlxJGlSVAn+xa/95KCQsrtkIWObTOMskJN9YISeu4LyOsN8Nvv8LImvG980QZYbS+/AZSVgsDe20GuOA3RClhc6wgyUT3l2xBwbIZYOtMWmehiafivu3rIYQQQk1BCCGE+oMQQgj1ByGEEOoPQggh1B+EEEKov5GFNBq9cc9501O1HLsnpfMWPwnrF2vIvwyw39xTJ2EzUaWhnvOHNgn7zQHbJOw3j2+TsLUZOiYkSb/1NNYIhReLuCQkh5ee69psELKhz/O+axN7C+8epNXml/NT//WlfYXkMNaK4uoYBeGNpb8PFf4Za2lKRIet8+4vFH9uxg1CFoTXL4Zw7CBkQXj9YgjHDkIWhNcv/lXCXd73LLbCC1kfKiyfep7EXsdFoUpp6n/A02wZq5kEMvUsRj0Sfy08K+GK8B8yU/FJNVjIdsYK7gZktNAnH5HjQt/3Bn9ODReS8+A30XThbvDXItOF6eB9zSOECrr8PTJ4Q1S/UuG4S4Y2T5s/2J4Q1C306PBT2NvmymrybJ5QQQWEXYKQBaHyIOwUhCwIlQdhpyBkQag8CDsFIQtC5UHYKQhZECoPwk5ByIJQeYYLFVxhOTFaSPfrwX0cTJ63UHOF5eXvGTj39CvmD1UK3Z8Ddn8e3/W1GAreQrOFSp6QZrCQkHL4O2iukA2lEj7NwSjh3YP6D6W7vZo11A9dI5z+6VnyTANVT0J97DrvbdGve0/GMUro/lp9CEcJQhaE1y+GcOwgZEF4/WIIxw5CFoTXL4Zw7CBkDRDSsdIkfI1XY0XzW+cFjD0T1bVD8ukJx2bq2cSu/Rv7QnT60RXhl/IgeJisS8J6eJv28NwS1ju31r0hHRP6ZM3PdTgnnPLTVa4JfcLf4dM9IT+pauiVzp1rhPzaBuXC2XmaaqgR8utT1K/6mgXjl+fNm7h5uFBHlEIIIYS6gxBCCPUHIYQQ6g9CCCHUH4QQQqg/CCGEUH8QQvjLhCYs5GqlVjgzsmFCetSzzKlTlwHyz8uVEka+3pnrLrX2FDJCrzhYJORvpCElDBOLhPyzLKWEs09rhO3bTEgJvaC0hUhO/PjlhHS2sYNIFq3jtZzQi96JDUSStW9RICn0ojg13VgPftnzqdVfH9Q82dw95GrPL4VX8EsL62NG8HbepVMzy6pTKL6Cv4OQfbkpNCx4kur2Q8w6Ca0MQvv7hcK9a8KQF34MvcedYdEVL5wbeaqpf9GZF6aCLz42V7zyQrJyakOk9WbIC1XcQcycwqotJHuH9jV0RgTC1nU1FrctRUKSbXUPTFWThAiFJJs4sbeh2y+gQEimsaq7pWkspCW5KSRk95KrfDj22NX/yYaLC0YoJKRcPMe6B9q3t/cq+0b5C7HDA6W5aMwGAAAAAElFTkSuQmCC"
+                                alt=""
+                            />
+                            International</a
+                        >
+                        <div class="header__combobox bdgray">
+                            <input
+                                type="text"
+                                id="search"
+                                placeholder="Tìm kiếm..."
+                            />
+                            <button class="submit-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <a class="header__login">
+                            <i class="fas fa-user"></i>
+                            <span>Đăng nhập</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <nav class="header__nav bdbt">
+                <div class="nav-icon">
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEWfIk7+/f3///+XADubCkSeHkycEUaWADanOl7GiZvUqrb37PCeFknRoq/Kmafw4ubIj6CpRGTBgpTbusP68/biyNC2ZX2XADqVADSZAD/o0djIkaHYsLyiJ1Pfv8mtSmvt2t+lMVmzYHq8c4mxWHStUG2+eo25bYT+Yi51AAAFGUlEQVR4nO3dfVuqPADHcRgMCR9Qj4SApZXa+3+Hh53uW3JMGzDZQ7/vv3nVPpcCxgZ4RFi5+Iw9S3t7r7JvFE/k273kEdU90P7RqAgX94TTuLCY91/hrLwpzCb2++roNrkhzLa6x6aqSSIUTgPdA1PXthQJTzPd41IXnQmErw69hfXupmoLV07sZf6Phi1hmuselNqKV144D3WPSW3RmRd+OLSfYdEVL9w7tRnWhbwwdk04gdD6ILS/jkIahUY2uz3qDkIaBsVxMTey5zAIbxzI5YXFKjkQc0t3x2KQkOZL9lPf2OrBJYFo7JJCys556Eb8FEnfBIOXFOaZ8T6fESd9heGTDcCaOG9vi1JCGpv/Ef2KHFvDlxJGlSVAn+xa/95KCQsrtkIWObTOMskJN9YISeu4LyOsN8Nvv8LImvG980QZYbS+/AZSVgsDe20GuOA3RClhc6wgyUT3l2xBwbIZYOtMWmehiafivu3rIYQQQk1BCCGE+oMQQgj1ByGEEOoPQggh1B+EEEKov5GFNBq9cc9501O1HLsnpfMWPwnrF2vIvwyw39xTJ2EzUaWhnvOHNgn7zQHbJOw3j2+TsLUZOiYkSb/1NNYIhReLuCQkh5ee69psELKhz/O+axN7C+8epNXml/NT//WlfYXkMNaK4uoYBeGNpb8PFf4Za2lKRIet8+4vFH9uxg1CFoTXL4Zw7CBkQXj9YgjHDkIWhNcv/lXCXd73LLbCC1kfKiyfep7EXsdFoUpp6n/A02wZq5kEMvUsRj0Sfy08K+GK8B8yU/FJNVjIdsYK7gZktNAnH5HjQt/3Bn9ODReS8+A30XThbvDXItOF6eB9zSOECrr8PTJ4Q1S/UuG4S4Y2T5s/2J4Q1C306PBT2NvmymrybJ5QQQWEXYKQBaHyIOwUhCwIlQdhpyBkQag8CDsFIQtC5UHYKQhZECoPwk5ByIJQeYYLFVxhOTFaSPfrwX0cTJ63UHOF5eXvGTj39CvmD1UK3Z8Ddn8e3/W1GAreQrOFSp6QZrCQkHL4O2iukA2lEj7NwSjh3YP6D6W7vZo11A9dI5z+6VnyTANVT0J97DrvbdGve0/GMUro/lp9CEcJQhaE1y+GcOwgZEF4/WIIxw5CFoTXL4Zw7CBkDRDSsdIkfI1XY0XzW+cFjD0T1bVD8ukJx2bq2cSu/Rv7QnT60RXhl/IgeJisS8J6eJv28NwS1ju31r0hHRP6ZM3PdTgnnPLTVa4JfcLf4dM9IT+pauiVzp1rhPzaBuXC2XmaaqgR8utT1K/6mgXjl+fNm7h5uFBHlEIIIYS6gxBCCPUHIYQQ6g9CCCHUH4QQQqg/CCGEUH8QQvjLhCYs5GqlVjgzsmFCetSzzKlTlwHyz8uVEka+3pnrLrX2FDJCrzhYJORvpCElDBOLhPyzLKWEs09rhO3bTEgJvaC0hUhO/PjlhHS2sYNIFq3jtZzQi96JDUSStW9RICn0ojg13VgPftnzqdVfH9Q82dw95GrPL4VX8EsL62NG8HbepVMzy6pTKL6Cv4OQfbkpNCx4kur2Q8w6Ca0MQvv7hcK9a8KQF34MvcedYdEVL5wbeaqpf9GZF6aCLz42V7zyQrJyakOk9WbIC1XcQcycwqotJHuH9jV0RgTC1nU1FrctRUKSbXUPTFWThAiFJJs4sbeh2y+gQEimsaq7pWkspCW5KSRk95KrfDj22NX/yYaLC0YoJKRcPMe6B9q3t/cq+0b5C7HDA6W5aMwGAAAAAElFTkSuQmCC"
+                        alt=""
+                    />
+                    <span>Mới nhất</span>
+                </div>
+                <a href="#" class="btn-home"><i class="fas fa-home"></i></a>
+                <ul class="menu"></ul>
+                <a class="btn-all">Tất cả <i class="fas fa-bars"></i></a>
+            </nav>
+            <main class="main-content">
+                <div class="grid wide">
+                    <section class="row firstpage bdbt">
+                        <div class="col c-12 md-9 firstpage-left">
+                            <div class="grid">
+                                <div class="row">
+                                    <div class="first1page col c-12">
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/02/quyn30491636961667620916369618-3745-4700-1651507040.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=aDObpU2lxM8UOe3dmGQjtw"
+                                            alt=""
+                                        />
+                                        <div class="news-box">
+                                            <a href="#" class="news-link">
+                                                <h3 class="news-title">
+                                                    Bên trong nhà máy hạt nhân
+                                                    Ukraine do Nga kiểm soát
+                                                </h3>
+                                                <p class="news-description">
+                                                    Không có nhiều dấu hiệu cho
+                                                    thấy chiến sự xảy ra tại nhà
+                                                    máy hạt nhân Zaporizhzhia
+                                                    lớn nhất Ukraine, nơi từng
+                                                    gây lo ngại về thảm họa hạt
+                                                    nhân.
+                                                </p>
+                                                <div class="typeatime">
+                                                    31' trước - Thời sự
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="news-box col c-4">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Ấn Độ, Pakistan hứng chịu nắng
+                                                nóng 'như địa ngục'
+                                            </h3>
+                                            <p class="news-description">
+                                                Nhiệt độ ở nhiều nơi tại Ấn Độ
+                                                và Pakistan gần đây thường xuyên
+                                                vượt 50 độ C, tàn phá nghiêm
+                                                trọng mùa màng và cuộc sống
+                                                người dân.
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="news-box col c-4 mgr-12">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Anh viện trợ quân sự thêm 375
+                                                triệu USD cho Ukraine
+                                            </h3>
+                                            <p class="news-description">
+                                                Anh cho biết sẽ cung cấp thêm
+                                                375 triệu USD viện trợ quân sự
+                                                cho Ukraine, trong đó có thiết
+                                                bị tác chiến điện tử và hệ thống
+                                                radar phòng thủ.
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="news-box col c-4 bdleft pl12">
+                                        <h3 class="article-type">Góc nhìn</h3>
+                                        <h4 class="news-title">
+                                            Miền Tây cạn kiệt
+                                        </h4>
+                                        <p class="news-description">
+                                            Sông rạch miền Tây bây giờ hầu như
+                                            chỉ còn cá lau kiếng.
+                                        </p>
+                                        <article>
+                                            <div class="nameauthor">
+                                                <span>Trương Chí Hùng</span>
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2020/09/30/truongchihungpng-1601425356.png?w=100&h=100&q=100&dpr=1&fit=crop&s=KePx5kDg_a7YwX06J_1F2Q"
+                                                alt=""
+                                            />
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col c-0 md-3 firstpage-right">
+                            <img
+                                src="https://cdn.w600.comps.canstockphoto.com/vector-poster-for-sport-club-marathon-drawing_csp60505290.jpg"
+                                alt=""
+                                style="
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                "
+                            />
+                        </div>
+                    </section>
+                    <section class="row content-body">
+                        <div class="col c-5 md-4 content-left">
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box-thumb">
+                                <img
+                                    src="https://s1.vnecdn.net/vnexpress/restruct/i/v588/v2_2019/pc/graphics/Nga-Ukraine-Pc.jpg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box-thumb">
+                                <img
+                                    src="https://s1.vnecdn.net/vnexpress/restruct/i/v588/v2_2019/pc/graphics/Nga-Ukraine-Pc.jpg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="content-news-box">
+                                <a href="#" class="news-link">
+                                    <h3 class="news-title">
+                                        Khách đến miền Trung tăng mạnh dịp 30/4
+                                    </h3>
+                                    <div class="news-intro">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                            alt=""
+                                        />
+                                        <p class="news-description">
+                                            Bình Định, Khánh Hoà, Đà Nẵng, Quảng
+                                            Bình... đều đón lượng khách lớn,
+                                            vượt dự báo.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col c-7 md-8 content-right">
+                            <div class="covidcare-category">
+                                <div class="covidcare swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide widthauto">
+                                            <a href="">Chăm sóc F0</a>
+                                        </div>
+                                        <div class="swiper-slide ">
+                                            <a href="">Bác sĩ tư vấn</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="">Tự chăm sóc</a>
+                                        </div>
+                                        <div class="swiper-slide widthauto">
+                                            <a href="">Thuốc điều trị</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="">Diễn đàn</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="">Triệu chứng</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="">Test nhanh</a>
+                                        </div>
+                                        <div class="swiper-slide widthauto">
+                                            <a href="">Phục hồi sức khỏe</a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <a href=""
+                                                ><span>...</span>Xem thêm</a
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <section
+                            class="col c-12 content-category-full video-category"
+                            style="--main-color: #9f224e"
+                        >
+                            <ul class="row content-category-header">
+                                <li class="main-cate">
+                                    <a href="#">Kinh doanh</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Quốc tế</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Doanh nghiệp</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Chứng khoáng</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Bất động sản</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Bảo hiểm</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">E-commerce 4.0</a>
+                                </li>
+                            </ul>
+                            <div class="row content-category-body">
+                                <div class="col c-12 md-8 video-box video-playing">
+                                    <video src="" controls></video>
+                                    <div class="video-info">
+                                        <h3 class="video-title">
+                                            Người dân dừng xe chụp ảnh trên cầu
+                                            Thủ Thiêm 2
+                                            <div class="box-comment">
+                                                <i
+                                                    class="fas fa-comment-alt"
+                                                ></i>
+                                                <span>24</span>
+                                            </div>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <ul class="col c-12 md-4 video-list">
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="video-item bdbt">
+                                        <picture>
+                                            <img
+                                                src="https://i1-vnexpress.vnecdn.net/2022/04/30/nhadep-1651294173-2992-1651294213.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=niHnUPU5zf8LdLvjmAoP4g"
+                                                alt=""
+                                            />
+                                            <span class="video-duration"
+                                                >03:40</span
+                                            >
+                                        </picture>
+                                        <div class="video-info">
+                                            <h3
+                                                class="video-title"
+                                                title=" Người dân dừng xe chụp ảnh trên cầu Thủ Thiêm 2"
+                                            >
+                                                Người dân dừng xe chụp ảnh trên
+                                                cầu Thủ Thiêm 2
+                                            </h3>
+                                            <div class="video-type">
+                                                Thời sự
+                                                <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>56</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section
+                            class="col c-12 podcasts-category"
+                            style="--main-color: #9f224e"
+                        >
+                            <ul class="content-category-header">
+                                <li class="main-cate">
+                                    <a href="#">Podcasts</a>
+                                </li>
+                            </ul>
+                            <div class="grid">
+                                <div class="row">
+                                    <div class="content-news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Đàn ông bị bạo hành gia đình
+                                            </h3>
+                                            <div class="news-intro">
+                                                <p class="news-description">
+                                                    Mỗi khi về nhà anh Nam đều
+                                                    lo sợ xảy ra xích mích với
+                                                    vợ bởi cô có thể phi dao vào
+                                                    người thân khi... 24
+                                                </p>
+                                                <img
+                                                    src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                                    alt=""
+                                                />
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="content-news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Đàn ông bị bạo hành gia đình
+                                            </h3>
+                                            <div class="news-intro">
+                                                <p class="news-description">
+                                                    Mỗi khi về nhà anh Nam đều
+                                                    lo sợ xảy ra xích mích với
+                                                    vợ bởi cô có thể phi dao vào
+                                                    người thân khi... 24
+                                                </p>
+                                                <img
+                                                    src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                                    alt=""
+                                                />
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="content-news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Đàn ông bị bạo hành gia đình
+                                            </h3>
+                                            <div class="news-intro">
+                                                <p class="news-description">
+                                                    Mỗi khi về nhà anh Nam đều
+                                                    lo sợ xảy ra xích mích với
+                                                    vợ bởi cô có thể phi dao vào
+                                                    người thân khi... 24
+                                                </p>
+                                                <img
+                                                    src="https://i1-dulich.vnecdn.net/2022/05/03/25-1651548407-7419-1651548429.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=DtCsOeUKbwwUxHJBqcPawQ"
+                                                    alt=""
+                                                />
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="col c-12 sm-6 md-4 section-small"
+                            style="--main-color: #9f224e"
+                        >
+                            <div class="section-small-content">
+                                <ul class="content-category-header">
+                                    <li class="main-cate">
+                                        <a href="#">Thời sự</a>
+                                    </li>
+                                    <li class="sub-cate">
+                                        <a href="#">Chính trị</a>
+                                    </li>
+                                    <li class="sub-cate">
+                                        <a href="#">Dân sinh</a>
+                                    </li>
+                                </ul>
+                                <div class="content-category-body">
+                                    <img
+                                        src="https://i1-vnexpress.vnecdn.net/2022/05/03/39ef11f9-2eb4-4bfb-874b-2f9793-8528-3232-1651540603.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=l8NZvY_2J1Xef7vZ9ry2YQ"
+                                        alt=""
+                                    />
+                                    <div class="news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Nông dân 'lợi kép' khi ghép
+                                                chanh dây với gốc lạc tiên
+                                            </h3>
+                                            <p class="news-description">
+                                                GIA LAI - Nông dân ở thị trấn
+                                                Đăk Pơ ghép chanh dây với gốc
+                                                lạc tiên (mọc tự nhiên) giúp cây
+                                                khoẻ mạnh, ít sâu bệnh, giảm chi
+                                                phí đầu tư, chăm sóc.
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Ôtô CSGT gặp nạn
+                                            </h3>
+                                            <p class="news-description">
+                                                GIA LAI - Ôtô của phòng Cảnh sát
+                                                giao thông đang chạy trên quốc
+                                                lộ 14 bất ngờ lao cây bụi bên
+                                                đường, làm một chiến sĩ bị
+                                                thương.
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="col c-12 sm-6 md-4 section-small"
+                            style="--main-color: #9f224e"
+                        >
+                            <div class="section-small-content">
+                                <ul class="content-category-header">
+                                    <li class="main-cate">
+                                        <a href="#">Thế giới</a>
+                                    </li>
+                                    <li class="sub-cate">
+                                        <a href="#">Tư liệu</a>
+                                    </li>
+                                    <li class="sub-cate">
+                                        <a href="#">Phân tích</a>
+                                    </li>
+                                </ul>
+                                <div class="content-category-body">
+                                    <img
+                                        src="https://i1-vnexpress.vnecdn.net/2022/05/03/putin-27-4-afp-1651582368-4477-1651582668.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=1DzQ2IMU-f_TqvktwhtQtg"
+                                        alt=""
+                                    />
+                                    <div class="news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Ông Putin ký sắc lệnh trả đũa
+                                                phương Tây
+                                            </h3>
+                                            <p class="news-description">
+                                                Tổng thống Putin ký sắc lệnh sử
+                                                dụng biện pháp kinh tế đáp trả
+                                                những hành động "không thân
+                                                thiện" của một số quốc gia và tổ
+                                                chức quốc tế.
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Bác sĩ Trung Quốc vượt hơn 600
+                                                km cứu bé sơ sinh
+                                            </h3>
+                                            <p class="news-description">
+                                                Một bác sĩ ở Thâm Quyến đã vượt
+                                                650 km tới tỉnh Phúc Kiến để
+                                                thực hiện ca phẫu thuật cứu sống
+                                                em bé sơ sinh bị liệt dây thanh.
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="col c-12 sm-6 md-4 section-small"
+                            style="--main-color: #9f224e"
+                        >
+                            <div class="section-small-content">
+                                <ul class="content-category-header">
+                                    <li class="main-cate">
+                                        <a href="#">Pháp luật</a>
+                                    </li>
+                                    <li class="sub-cate">
+                                        <a href="#">Hồ sơ phá án</a>
+                                    </li>
+                                    <li class="sub-cate">
+                                        <a href="#">Tư vấn</a>
+                                    </li>
+                                </ul>
+                                <div class="content-category-body">
+                                    <img
+                                        src="https://i1-vnexpress.vnecdn.net/2022/05/03/man-3073-1651580273-1651583399-9271-1651583436.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=ZouL0dTH7aiHWPHEyil8KA"
+                                        alt=""
+                                    />
+                                    <div class="news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Nhóm người trốn truy nã bị cảnh
+                                                sát vây bắt
+                                            </h3>
+                                            <p class="news-description">
+                                                ĐỒNG NAIHoàng Ngọc Mẫn, 24 tuổi,
+                                                cùng hai đồng phạm bị truy nã vì
+                                                mua bán ma tuý, tiếp tục gây ra
+                                                vụ án giết người ở Yên Bái, khi
+                                                bỏ trốn vào phía Nam thì bị bắt
+                                                giữ.
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="news-box">
+                                        <a href="#" class="news-link">
+                                            <h3 class="news-title">
+                                                Câu đố: Hàng xóm nào là kẻ trộm
+                                                mèo?
+                                            </h3>
+                                            <p class="news-description">
+                                                Bạn hãy dựa trên lời khai của
+                                                những hàng xóm và quan sát hình
+                                                vẽ để xác định kẻ trộm.
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="col c-12 content-category-full-v2"
+                            style="--main-color: #065e9d"
+                        >
+                            <ul class="content-category-header">
+                                <li class="main-cate">
+                                    <a href="#">Du lịch</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Điểm đến</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Ẩm thực</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Dấu chân</a>
+                                </li>
+                                <li class="sub-cate"><a href="#">Tư vấn</a></li>
+                                <li class="sub-cate">
+                                    <a href="#">Cẩm nang</a>
+                                </li>
+                                <li class="sub-cate"><a href="#">Ảnh</a></li>
+                                <li class="sub-cate">
+                                    <a href="#">Ăn và chơi</a>
+                                </li>
+                            </ul>
+                            <div class="content-category-body">
+                                <div class="news-box">
+                                    <img
+                                        src="https://i1-dulich.vnecdn.net/2022/05/03/278796058107306602023051882600-3435-5467-1651573015.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=KI70z6H1UhkexYcrxQCspA"
+                                        alt=""
+                                    />
+                                    <h3 class="news-title">
+                                        Khách Tây thích chăn trâu, chèo thuyền
+                                        thúng ở Hội An
+                                    </h3>
+                                    <p class="news-description">
+                                        QUẢNG NAMNhiều đoàn khách quốc tế đến
+                                        Hội An yêu thích các hoạt động dân dã
+                                        như đi thăm làng quê, rừng dừa Bảy Mẫu,
+                                        đi chợ nấu ăn.
+                                    </p>
+                                </div>
+                                <div class="news-list">
+                                    <div class="news-box">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/chuachan1-1651554571-165155458-5811-8200-1651554739.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=u9p92slbW9k3w9xTIO7lXQ"
+                                            alt=""
+                                        />
+                                        <h3 class="news-title">
+                                            Cắm trại dưới mưa ngày nghỉ lễ
+                                        </h3>
+                                    </div>
+                                    <div class="news-box">
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/279430886-793350988301785-7401-9693-4315-1651534679.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=ZrsZImpJLcFxfIVlyjFQ3w"
+                                            alt=""
+                                        />
+                                        <h3 class="news-title">
+                                            Du khách sau kỳ nghỉ: 'Thay đổi kế
+                                            hoạch vẫn vui như Tết'
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="news-list">
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Báo Canada gợi ý 9 trải nghiệm ở
+                                            đồng bằng sông Cửu Long
+                                        </h3>
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/chonoi-5262-1651571117-1651574-7474-3107-1651574781.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=bRTmcU4gr9JRZ1LZW5evPg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Phuket trên đường tái sinh
+                                        </h3>
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/03/2-2742-1651228305-1651536379-5734-1651536384.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=uawfwMyV30-CBlVPk2cztg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Biển Vũng Tàu vắng khách 50
+                                        </h3>
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/02/bienvungtau-1651494954-8785-16-6244-9285-1651496020.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=VQ3uxjXoYTZU-PiiQtseow"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Cầu kính Bạch Long đón 15.000 lượt
+                                            khách
+                                        </h3>
+                                        <img
+                                            src="https://i1-dulich.vnecdn.net/2022/05/02/cau-1651491908-1651491919-7644-1651492094.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=IH96l6FEoKsN43EdxPB8RQ"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="col c-12 content-category-full-v2"
+                            style="--main-color: #065e9d"
+                        >
+                            <ul class="content-category-header">
+                                <li class="main-cate">
+                                    <a href="#">Xe</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Thị trường</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Cầm lái</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">V-Car</a>
+                                </li>
+                                <li class="sub-cate"><a href="#">Tư vấn</a></li>
+                                <li class="sub-cate">
+                                    <a href="#">Diễn đàn</a>
+                                </li>
+                                <li class="sub-cate"><a href="#">Video</a></li>
+                                <li class="sub-cate">
+                                    <a href="#">Cẩm nang mua xe</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Thi bằng lái</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Mua bán</a>
+                                </li>
+                            </ul>
+                            <div class="content-category-body">
+                                <div class="news-box">
+                                    <img
+                                        src="https://i1-vnexpress.vnecdn.net/2022/05/03/porsche-911-1-1651394600-1651558076.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=gjHtDo2xzemgqqPLWgqy_A"
+                                        alt=""
+                                    />
+                                    <h3 class="news-title">
+                                        Xe mô hình Porsche đắt ngang ôtô con tại Việt Nam
+                                    </h3>
+                                    <p class="news-description">
+                                        Mẫu mô hình tỷ lệ 1/8 được làm tinh xảo từng chi tiết, để trưng bày, giới hạn 50 chiếc trên toàn thế giới, giá nhập về hàng trăm triệu. 
+                                    </p>
+                                </div>
+                                <div class="news-list">
+                                    <div class="news-box">
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/03/toyotaraizevnexpress1jpg-16515-8462-1286-1651541060.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=Ivz6RQNq7B-3P6BlYn_Hng"
+                                            alt=""
+                                        />
+                                        <h3 class="news-title">
+                                            Toyota Việt Nam triệu hồi Raize vì nguy cơ sập gầm 119
+                                        </h3>
+                                    </div>
+                                    <div class="news-box">
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/03/toyotaraizevnexpress1jpg-16515-8462-1286-1651541060.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=Ivz6RQNq7B-3P6BlYn_Hng"
+                                            alt=""
+                                        />
+                                        <h3 class="news-title">
+                                            Toyota Việt Nam triệu hồi Raize vì nguy cơ sập gầm 119
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="news-list">
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Camry 2.0 2014 giá 670 triệu nên mua?
+                                        </h3>
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/02/toyotacamry-1651501337-1651501-1218-5965-1651501387.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=Q3tWnXIMyvG-e-FpW7483Q"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            PĐịnh giá Honda City 2017?
+                                        </h3>
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/02/toyotacamry-1651501337-1651501-1218-5965-1651501387.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=Q3tWnXIMyvG-e-FpW7483Q"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Xe thể thao chưa một lần chạy ngoài đường giá siêu đắt
+                                        </h3>
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/02/toyotacamry-1651501337-1651501-1218-5965-1651501387.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=Q3tWnXIMyvG-e-FpW7483Q"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Xe thể thao chưa một lần chạy ngoài đường giá siêu đắt
+                                        </h3>
+                                        <img
+                                            src="https://i1-vnexpress.vnecdn.net/2022/05/02/toyotacamry-1651501337-1651501-1218-5965-1651501387.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=Q3tWnXIMyvG-e-FpW7483Q"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section
+                            class="col c-12 content-category-full-v2"
+                            style="--main-color: #b88000"
+                        >
+                            <ul class="content-category-header">
+                                <li class="main-cate">
+                                    <a href="#">Số hóa</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Công nghệ</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Công nghệ</a>
+                                </li>
+                                <li class="sub-cate">
+                                    <a href="#">Sản phẩm</a>
+                                </li>
+                                <li class="sub-cate"><a href="#">Blockchain</a></li>
+                                <li class="sub-cate">
+                                    <a href="#">Tech Award 2022</a>
+                                </li>
+                                <li class="sub-cate"><a href="#">CTO Summit 2022<a></li>
+                                <li class="sub-cate">
+                                    <a href="#"> Startup</a>
+                                </li>
+                            </ul>
+                            <div class="content-category-body">
+                                <div class="news-box">
+                                    <img
+                                        src="https://i1-sohoa.vnecdn.net/2022/05/02/ive-3-1651485108-7646-1651485156.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=5cRnSK7Uy8AnqYP2lYBriQ"
+                                        alt=""
+                                    />
+                                    <h3 class="news-title">
+                                        Vì sao huyền thoại thiết kế Jonathan Ive rời Apple
+                                    </h3>
+                                    <p class="news-description">
+                                        Jonathan Ive, được mệnh danh là huyền thoại thiết kế của Apple, nghỉ việc sau hàng chục năm gắn bó vì cơ chế lãnh đạo dưới thời Tim Cook.  11
+                                    </p>
+                                </div>
+                                <div class="news-list">
+                                    <div class="news-box">
+                                        <img
+                                            src="https://i1-sohoa.vnecdn.net/2022/05/02/ive-3-1651485108-7646-1651485156.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=5cRnSK7Uy8AnqYP2lYBriQ"
+                                            alt=""
+                                        />
+                                        <h3 class="news-title">
+                                            Lý do Warren Buffett không tin Bitcoin
+                                        </h3>
+                                    </div>
+                                    <div class="news-box">
+                                        <img
+                                            src="https://i1-sohoa.vnecdn.net/2022/05/02/ive-3-1651485108-7646-1651485156.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=5cRnSK7Uy8AnqYP2lYBriQ"
+                                            alt=""
+                                        />
+                                        <h3 class="news-title">
+                                            Chế tác thủ công phím máy tính giá hàng triệu đồng
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="news-list">
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Người dùng mạng xã hội Trung Quốc phải hiển thị vị tr
+                                        </h3>
+                                        <img
+                                            src="https://i1-sohoa.vnecdn.net/2022/05/02/ive-3-1651485108-7646-1651485156.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=5cRnSK7Uy8AnqYP2lYBriQ"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Hơn 30 vụ đánh cắp tiền mã hóa trong một tháng
+                                        </h3>
+                                        <img
+                                            src="https://i1-sohoa.vnecdn.net/2022/05/02/ive-3-1651485108-7646-1651485156.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=5cRnSK7Uy8AnqYP2lYBriQ"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Bên trong bộ công cụ tự sửa iPhone có gì
+                                        </h3>
+                                        <img
+                                            src="https://i1-sohoa.vnecdn.net/2022/05/02/ive-3-1651485108-7646-1651485156.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=5cRnSK7Uy8AnqYP2lYBriQ"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div class="news-box">
+                                        <h3 class="news-title">
+                                            Cây lấy sim của Apple có giá gần 100.000 đồng
+                                        </h3>
+                                        <img
+                                            src="https://i1-sohoa.vnecdn.net/2022/05/02/ive-3-1651485108-7646-1651485156.jpg?w=500&h=300&q=100&dpr=1&fit=crop&s=5cRnSK7Uy8AnqYP2lYBriQ"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col c-6 md-9 content-above-left">
+                            <div class="grid">
+                                <div class="row">
+                                    <div class="col c-12 section-tamsu" style="--main-color: #9f224e">
+                                        <ul class="content-category-header">
+                                            <li class="main-cate">
+                                                <a href="#">Tâm sự</a>
+                                            </li>
+                                            <li class="sub-cate">
+                                                <a href="#">Chuyên gia gỡ rối</a>
+                                            </li>
+                                            <li class="sub-cate">
+                                                <a href="#">Hẹn hò</a>
+                                            </li>
+                                        </ul>
+                                        <div class="content-category-body">
+                                            <a class="news-box">
+                                                <h3 class="news-title">Vợ thụ động chuyện chăn gối</h3>
+                                                <p class="news-description">Tôi và vợ cả tháng chỉ gần gũi một lần. Vợ chẳng khi nào chủ động thể hiện nhu cầu với chồng.
+                                                    <br>Theo tôi biết, tùy vào sức khỏe, điều kiện, thời gian, nhu cầu của mỗi cặp vợ chồng, tần suất quan hệ sẽ khác nhau. Vậy mỗi tuần quan hệ bao nhiêu lần là vừa? Quan hệ ít có ảnh hưởng hạnh phúc gia đình không? Tôi nghe nói có cặp vợ chồng ngày nào cũng gần gũi, có khi một đêm gần gũi vài lần.Không phải tôi không có... </p>
+                                            </a>
+                                            <div>
+                                                <a class="news-box">
+                                                    <h3 class="news-title">Bạn gái có quan hệ tình cảm với tomboy</h3>
+                                                    <p class="news-description">Tôi và bạn gái quen nhau khi đi du học cách đây năm năm. Em là cô gái dễ thương và xinh xắn. </p> 
+                                                </a>
+                                                <a class="news-box">
+                                                    <h3 class="news-title">Sự tệ bạc của anh khiến em chẳng còn gì tiếc nuối</h3>
+                                                <p class="news-description">Sau 12 năm bên em, anh đã chọn người đàn bà đó. Chỉ vì sự ích kỷ, dục vọng của mình, anh đã bỏ vợ, bỏ cả đại gia đình. </p>
+                                                </a>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div class="col c-12 md-6 section-ykien" style="--main-color: #9f224e">
+                                        <ul class="content-category-header">
+                                            <li class="main-cate">
+                                                <a href="#">Ý kiến</a>
+                                            </li>
+                                        </ul>
+                                        <div class="content-category-body">
+                                            <a class="news-box full-news">
+                                                <h3 class="news-title">Ám ảnh chuyện con một</h3>
+                                                <p class="news-description">Bố mẹ tôi bệnh, một mình tôi lo liệu, nhiều lúc khó khăn chỉ mong có anh chị em để cùng nhau tâm sự. </p>
+                                            </a>
+                                            <div class="sub-news">
+                                                <a class="news-box">
+                                                    <h3 class="news-title">'Không dám ly hôn khi chưa độc lập kinh tế'</h3>
+                                                    <p class="news-description">Một vị khách nữ tìm đến nhờ tôi tư vấn về ly hôn, tôi hỏi lý do, vị khách trả lời là chồng hay chửi mắng.</p>
+                                                </a>
+                                                <a class="news-box">
+                                                    <h3 class="news-title">Mất một ngày nghỉ lễ vì chạy xe máy về quê</h3>
+                                                    <p class="news-description">"Rầm" - tiếng động to làm tôi và những người hàng xóm giật mình, một chiếc xe máy phóng thật nhanh, lao lên lề rồi đâm vào cửa sắt. </p>
+                                                </a>
+                                                <a class="news-box">
+                                                    <h3 class="news-title">'Cấm xe máy là phù hợp xu thế phát triển'</h3>
+                                                    <p class="news-description">Xe máy gần như chỉ phục vụ cho mục đích cá nhân, chứ chẳng đóng góp được gì cho sự phát triển chung của cả nền kinh tế xã hội.</p>
+                                                </a>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    <div class="col c-12 md-6 section-hai" style="--main-color: #9f224e">
+                                        <ul class="content-category-header">
+                                            <li class="main-cate">
+                                                <a href="#">Hài</a>
+                                            </li>
+                                            <li class="sub-cate">
+                                                <a href="#">Cười</a>
+                                            </li>
+                                            <li class="sub-cate">
+                                                <a href="#">Đố vui</a>
+                                            </li>
+                                            </li>
+                                            <li class="sub-cate">
+                                                <a href="#">Chuyện lạ</a>
+                                            </li>
+                                        </ul>
+                                        <div class="content-category-body">
+                                            <a class="news-box full-news">
+                                                <img src="https://i1-vnexpress.vnecdn.net/2022/05/03/Untitled3-1651511650-9611-1651511658.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=DD1YYG8HXlprsQjzajJbJA" alt="">
+                                                <h3 class="news-title">Chủ mất cả đàn ngỗng vì cao thủ ném vòng</h3>
+                                                <p class="news-description">Người đàn ông ném vòng bách phát bách trúng khiến ông chủ nổi đóa nhưng cũng phải chịu mất đàn ngỗng. </p>
+                                            </a>
+                                            <div class="sub-news">
+                                                <a class="news-box">
+                                                    <h3 class="news-title">Chú rể xem đám cưới của mình qua livestream</h3>
+                                                    <p class="news-description">Do không kịp làm giấy xét nghiệm covid-19 theo yêu cầu của khách sạn, chú rể phải đứng ngoài xem lễ cưới của mình qua livestream. </p>
+                                                </a>
+                                                <a class="news-box">
+                                                    <h3 class="news-title">Mắt 10/10 có thấy con ngựa</h3>
+                                                    <p class="news-description">Đừng vội đầu hàng, bạn nên nhìn kỹ là ra ngay thôi. </p>
+                                                </a>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col c-6 md-3 content-above-right"></section>
+                        <section class="col c-12 section-picture" style="--main-color: #9f224e">
+                            <ul class="content-category-header">
+                                <li class="main-cate">
+                                    <a href="#">Ảnh</a>
+                                </li>
+                            </ul>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="https://i1-thethao.vnecdn.net/2022/05/03/A14-1651546815.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=HQHUU7lmKagg3TzZEnaqSQ" alt="">
+                                        <div class="news-box">
+                                            <h3 class="news-title">Chen nhau mua vé xem U23 Việt Nam</h3>
+                                            <p class="news-description">Hàng nghìn CĐV xếp hàng xuyên đêm trước SVĐ Việt Trì, chờ mua vé U23 Việt Nam đá vòng bảng SEA Games 31.</p>
+                                        </div>
+                                        <div class="news-box">
+                                            <h3 class="news-title">Elon Musk tạo dáng trên thảm đỏ Met Gala</h3>
+                                            <p class="news-description">Tỷ phú công nghệ Elon Musk chu môi, nghiêng người hài hước bên dàn sao ở Met Gala 2022.</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://i1-giaitri.vnecdn.net/2022/05/03/elon-musk-nhi-nhanh-met-gala-2022.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=xkRpgBELNwMzmRr6zLWLjg" alt="">
+                                        <div class="news-box">
+                                            <h3 class="news-title">Elon Musk tạo dáng trên thảm đỏ Met Gala</h3>
+                                            <p class="news-description">Tỷ phú công nghệ Elon Musk chu môi, nghiêng người hài hước bên dàn sao ở Met Gala 2022.</p>
+                                        </div>
+                                        <div class="news-box">
+                                            <h3 class="news-title">Xe mô hình Porsche đắt ngang ôtô con tại Việt Nam</h3>
+                                            <p class="news-description">Mẫu mô hình tỷ lệ 1/8 được làm tinh xảo từng chi tiết, để trưng bày, giới hạn 50 chiếc trên toàn thế giới, giá nhập về hàng trăm triệu.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="swiper-slide">
+                                        <img src="https://i1-vnexpress.vnecdn.net/2022/05/03/porsche-911-1-1651394600-1651558076.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=Ns4dwD89UZiOf4tO5hXuDg" alt="">
+                                        <div class="news-box">
+                                            <h3 class="news-title">Xe mô hình Porsche đắt ngang ôtô con tại Việt Nam</h3>
+                                            <p class="news-description">Mẫu mô hình tỷ lệ 1/8 được làm tinh xảo từng chi tiết, để trưng bày, giới hạn 50 chiếc trên toàn thế giới, giá nhập về hàng trăm triệu.</p>
+                                        </div>
+                                        <div class="news-box">
+                                            <h3 class="news-title">Hiện trạng cầu qua sông Cần Thơ sau 2 năm thi công</h3>
+                                            <p class="news-description">Cầu Trần Hoàng Na là công trình trọng điểm giúp giải toả ùn tắc khu vực, khởi công năm 2020, dự kiến hoàn thành sau hai năm, nay đạt 57%, nguy cơ chậm trễ.</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://i1-vnexpress.vnecdn.net/2022/04/30/hinh-4-chon-1651309939-1651326028.jpg?w=900&h=540&q=100&dpr=1&fit=crop&s=bBq8ORMm1KEi88r3KWJmzQ" alt="">
+                                        <div class="news-box">
+                                            <h3 class="news-title">Hiện trạng cầu qua sông Cần Thơ sau 2 năm thi công</h3>
+                                            <p class="news-description">Cầu Trần Hoàng Na là công trình trọng điểm giúp giải toả ùn tắc khu vực, khởi công năm 2020, dự kiến hoàn thành sau hai năm, nay đạt 57%, nguy cơ chậm trễ.</p>
+                                        </div>
+                                        <div class="news-box">
+                                            <h3 class="news-title">Thầy trò Kiatisuk tri ân CĐV</h3>
+                                            <p class="news-description">Sau trận thắng Sydney FC ở lượt cuối vòng bảng AFC Champions League, ban huấn luyện và cầu thủ HAGL cùng đi quanh sân Thống Nhất để cảm ơn người hâm mộ.</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://i1-thethao.vnecdn.net/2022/05/02/suk-3-1651451380.png?w=900&h=540&q=100&dpr=1&fit=crop&s=Uwp4P2xQJjgM7GrpITkE8Q" alt="">
+                                        <div class="news-box">
+                                            <h3 class="news-title">Thầy trò Kiatisuk tri ân CĐV</h3>
+                                            <p class="news-description">Sau trận thắng Sydney FC ở lượt cuối vòng bảng AFC Champions League, ban huấn luyện và cầu thủ HAGL cùng đi quanh sân Thống Nhất để cảm ơn người hâm mộ.</p>
+                                        </div>
+                                        <div class="news-box">
+                                            <h3 class="news-title">Chen nhau mua vé xem U23 Việt Nam</h3>
+                                            <p class="news-description">Hàng nghìn CĐV xếp hàng xuyên đêm trước SVĐ Việt Trì, chờ mua vé U23 Việt Nam đá vòng bảng SEA Games 31.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </section>
+                        <section class="col c-6 md-9 content-above-left bdbt pb20">
+                            <div class="grid">
+                                <div class="row">
+                                    <div class="col c-12 section-infography" style="--main-color: #9f224e">
+                                        <ul class="content-category-header">
+                                            <li class="main-cate">
+                                                <a href="#">Infographics</a>
+                                            </li>
+                                        </ul>
+                                        <div class="content-category-body">
+                                            <a class="news-box">
+                                                <img src="https://i1-vnexpress.vnecdn.net/2022/04/29/may-duoi-toc.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=mTlbI-zrl_YjhkxKBKJtBg" alt="">
+                                                <h3 class="news-title">Máy duỗi tóc hoạt động như thế nào? </h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <img src="https://i1-vnexpress.vnecdn.net/2022/04/29/Settop-Tuyen-sinh-lop-10.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=XRHmKTcJP6csPaMh4IUulQ" alt="">
+                                                <h3 class="news-title">Quy mô thi vào lớp 10 THPT ở Hà Nội, TP HCM</h3>
+                                            </a>
+                                            
+                                        </div>        
+                                    </div>
+                                    <div class="col c-12 section-event" style="--main-color: #9f224e">
+                                        <ul class="content-category-header">
+                                            <li class="main-cate">
+                                                <a href="#">Sự kiện</a>
+                                            </li>
+                                        </ul>
+                                        <div class="content-category-body">
+                                            <div class="swiper mySwiper">
+                                                <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                    <a class="news-box">
+                                                        <img src="https://i1-vnexpress.vnecdn.net/2020/11/10/278481604915294jpg-1605004576.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=YmhQypNXqmsyfy5pzIIMwA" alt="">
+                                                        <h3 class="news-title">VnExpress Marathon Quy Nhơn 2022</h3>
+                                                    </a>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                    <a class="news-box">
+                                                        <img src="https://i1-vnexpress.vnecdn.net/2021/03/30/NhaTrang1jpg-1617103932.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=72J4mTmPm4XXfjOWvi1hcA" alt="">
+                                                        <h3 class="news-title">VnExpress Marathon Marvelous Nha Trang 2022</h3>
+                                                    </a>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                    <a class="news-box">
+                                                        <img src="https://i1-vnexpress.vnecdn.net/2021/01/25/516105334491200x0jpg-1611537179.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=bjqw2eGZQFrfnQw0KK588Q" alt="">
+                                                        <h3 class="news-title">VnExpress Marathon Amazing Halong 2022</h3>
+                                                    </a>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                    <a class="news-box">
+                                                        <img src="https://i1-vnexpress.vnecdn.net/2021/02/21/DONG2590jpg-1613878655.jpg?w=120&h=72&q=100&dpr=1&fit=crop&s=JCypuHDllRWDmKaRrzTdhA" alt="">
+                                                        <h3 class="news-title">VnExpress Marathon Hanoi Midnight 2022</h3>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                                <div class="swiper-button-prev"></div>
+                                                <div class="swiper-button-next"></div>
+                                              </div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        </div>        
+                                    </div>
+                                    <div class="col c-12 section-topviews" style="--main-color: #9f224e">
+                                        <ul class="content-category-header">
+                                            <li class="main-cate">
+                                                <a href="#">Xem nhiều</a>
+                                            </li>
+                                        </ul>
+                                        <div class="content-category-body">
+                                            <a class="news-box">
+                                                <span class="num-topview">1</span>
+                                                <h3 class="news-title">Phó công an phường bị đình chỉ công tác vì đánh phụ nữ   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>204</span>
+                                                </div></h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <span class="num-topview">5</span>
+                                                <h3 class="news-title">EU sắp tung gói trừng phạt mới đối với Nga   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>67</span>
+                                                </div></h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <span class="num-topview">2</span>
+                                                <h3 class="news-title">Ấn Độ, Pakistan hứng chịu nắng nóng 'như địa ngục'   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>80</span>
+                                                </div></h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <span class="num-topview">6</span>
+                                                <h3 class="news-title">Sống sót sau bảy ngày rơi xuống vực ở Yên Tử   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>190</span>
+                                                </div></h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <span class="num-topview">3</span>
+                                                <h3 class="news-title">Chen nhau mua vé xem U23 Việt Nam   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>119</span>
+                                                </div></h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <span class="num-topview">7</span>
+                                                <h3 class="news-title">Lý do Warren Buffett không tin Bitcoin   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>159</span>
+                                                </div></h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <span class="num-topview">4</span>
+                                                <h3 class="news-title">Anh viện trợ thêm 375 triệu USD khí tài quân sự cho Ukraine   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>83</span>
+                                                </div></h3>
+                                            </a>
+                                            <a class="news-box">
+                                                <span class="num-topview">8</span>
+                                                <h3 class="news-title">Ronaldo: 'Tôi chưa kết thúc'   <div class="box-comment">
+                                                    <i
+                                                        class="fas fa-comment-alt"
+                                                    ></i>
+                                                    <span>402</span>
+                                                </div></h3>
+                                            </a>
+                                            
+                                            
+                                        </div>        
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col c-6 md-3 content-above-right bdbt pb20"></section>
+                        <section class="col c-12 section-special">
+                            <div class="section-special-star swiper">
+                                    <div class="section-special-logo"><a href="#">
+                                        <img src="https://s1.vnecdn.net/vnexpress/restruct/i/v588/v2_2019/pc/graphics/svg_ngoisao.svg" alt="">
+                                        <span>Ngôi sao <br> Về những người nổi tiếng</span>
+                                    </a></div>
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                        <a class="news-box">
+                                            <img src="https://i1-ngoisao.vnecdn.net/2022/05/04/minhhangtop1-1651637606-4175-1651637677.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=KlXIYiSk0DqPS8OfikoedQ" alt="">
+                                            <div class="news-info">
+                                                <h3 class="news-title">Minh Hằng hát tặng chồng sắp cưới</h3>
+                                                <p class="news-description">Trước khi hát tặng chồng sắp cưới ca khúc 'Một nhà' trong mini show cá nhân tối 3/5, ca sĩ Minh Hằng khóc nói về hạnh phúc tình yêu hiện tại.</p>
+                                            </div>
+                                        </a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                        <a class="news-box">
+                                            <img src="https://i1-ngoisao.vnecdn.net/2022/05/04/minhhangtop1-1651637606-4175-1651637677.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=KlXIYiSk0DqPS8OfikoedQ" alt="">
+                                            <div class="news-info">
+                                                <h3 class="news-title">Minh Hằng hát tặng chồng sắp cưới</h3>
+                                                <p class="news-description">Trước khi hát tặng chồng sắp cưới ca khúc 'Một nhà' trong mini show cá nhân tối 3/5, ca sĩ Minh Hằng khóc nói về hạnh phúc tình yêu hiện tại.</p>
+                                            </div>
+                                        </a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                        <a class="news-box">
+                                            <img src="https://i1-ngoisao.vnecdn.net/2022/05/04/minhhangtop1-1651637606-4175-1651637677.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=KlXIYiSk0DqPS8OfikoedQ" alt="">
+                                            <div class="news-info">
+                                                <h3 class="news-title">Minh Hằng hát tặng chồng sắp cưới</h3>
+                                                <p class="news-description">Trước khi hát tặng chồng sắp cưới ca khúc 'Một nhà' trong mini show cá nhân tối 3/5, ca sĩ Minh Hằng khóc nói về hạnh phúc tình yêu hiện tại.</p>
+                                            </div>
+                                        </a>
+                                        </div>
+                                        <div class="swiper-slide">
+                                        <a class="news-box">
+                                            <img src="https://i1-ngoisao.vnecdn.net/2022/05/04/minhhangtop1-1651637606-4175-1651637677.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=KlXIYiSk0DqPS8OfikoedQ" alt="">
+                                            <div class="news-info">
+                                                <h3 class="news-title">Minh Hằng hát tặng chồng sắp cưới</h3>
+                                                <p class="news-description">Trước khi hát tặng chồng sắp cưới ca khúc 'Một nhà' trong mini show cá nhân tối 3/5, ca sĩ Minh Hằng khóc nói về hạnh phúc tình yêu hiện tại.</p>
+                                            </div>
+                                        </a>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="section-special-international swiper">
+                                <div class="section-special-logo"><a href="#">
+                                    <img src="https://s1.vnecdn.net/vnexpress/restruct/i/v588/v2_2019/pc/graphics/svg_vne.svg" alt="">
+                                    <span>VnExpress International <br>All things Vietnam and beyond</span>
+                                </a></div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                    <a class="news-box">
+                                        <img src="https://i1-english.vnecdn.net/2022/05/04/trafficjam2-1651633129-1651633-9027-6475-1651636213.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=tcuw1XbbbvfSRc3LtcpsDQ" alt="">
+                                        <div class="news-info">
+                                            <h3 class="news-title">Traffic during long weekend highest since Covid began</h3>
+                                            <p class="news-description">Traffic volumes across the country during the past weekend were the highest since the Covid-19 pandemic hit in late 2019, according to the Traffic Police Department.</p>
+                                        </div>
+                                    </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                    <a class="news-box">
+                                        <img src="https://i1-english.vnecdn.net/2022/05/04/trafficjam2-1651633129-1651633-9027-6475-1651636213.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=tcuw1XbbbvfSRc3LtcpsDQ" alt="">
+                                        <div class="news-info">
+                                            <h3 class="news-title">Traffic during long weekend highest since Covid began</h3>
+                                            <p class="news-description">Traffic volumes across the country during the past weekend were the highest since the Covid-19 pandemic hit in late 2019, according to the Traffic Police Department.</p>
+                                        </div>
+                                    </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                    <a class="news-box">
+                                        <img src="https://i1-english.vnecdn.net/2022/05/04/trafficjam2-1651633129-1651633-9027-6475-1651636213.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=tcuw1XbbbvfSRc3LtcpsDQ" alt="">
+                                        <div class="news-info">
+                                            <h3 class="news-title">Traffic during long weekend highest since Covid began</h3>
+                                            <p class="news-description">Traffic volumes across the country during the past weekend were the highest since the Covid-19 pandemic hit in late 2019, according to the Traffic Police Department.</p>
+                                        </div>
+                                    </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                    <a class="news-box">
+                                        <img src="https://i1-english.vnecdn.net/2022/05/04/trafficjam2-1651633129-1651633-9027-6475-1651636213.jpg?w=380&h=228&q=100&dpr=1&fit=crop&s=tcuw1XbbbvfSRc3LtcpsDQ" alt="">
+                                        <div class="news-info">
+                                            <h3 class="news-title">Traffic during long weekend highest since Covid began</h3>
+                                            <p class="news-description">Traffic volumes across the country during the past weekend were the highest since the Covid-19 pandemic hit in late 2019, according to the Traffic Police Department.</p>
+                                        </div>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col c-12 section-event section-business" style="--main-color: #9f224e">
+                            <ul class="content-category-header">
+                                <li class="main-cate">
+                                    <a href="#">Thông tin doanh nghiệp</a>
+                                </li>
+                            </ul>
+                            <div class="content-category-body">
+                                <div class="swiper business">
+                                    <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a class="news-box">
+                                                    <img src="https://i1-kinhdoanh.vnecdn.net/2022/04/27/422-1651076542-7177-1651076695.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=mAIAKDK1iJGjNYSWgSbUGQ" alt="">
+                                                    <h3 class="news-title">Loạt lợi thế thúc đẩy thị trường bất động sản Phú Yên</h3>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a class="news-box">
+                                                    <img src="https://i1-kinhdoanh.vnecdn.net/2022/04/27/422-1651076542-7177-1651076695.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=mAIAKDK1iJGjNYSWgSbUGQ" alt="">
+                                                    <h3 class="news-title">Loạt lợi thế thúc đẩy thị trường bất động sản Phú Yên</h3>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a class="news-box">
+                                                    <img src="https://i1-kinhdoanh.vnecdn.net/2022/04/27/422-1651076542-7177-1651076695.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=mAIAKDK1iJGjNYSWgSbUGQ" alt="">
+                                                    <h3 class="news-title">Loạt lợi thế thúc đẩy thị trường bất động sản Phú Yên</h3>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a class="news-box">
+                                                    <img src="https://i1-kinhdoanh.vnecdn.net/2022/04/27/422-1651076542-7177-1651076695.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=mAIAKDK1iJGjNYSWgSbUGQ" alt="">
+                                                    <h3 class="news-title">Loạt lợi thế thúc đẩy thị trường bất động sản Phú Yên</h3>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a class="news-box">
+                                                    <img src="https://i1-kinhdoanh.vnecdn.net/2022/04/27/422-1651076542-7177-1651076695.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=mAIAKDK1iJGjNYSWgSbUGQ" alt="">
+                                                    <h3 class="news-title">Loạt lợi thế thúc đẩy thị trường bất động sản Phú Yên</h3>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a class="news-box">
+                                                    <img src="https://i1-kinhdoanh.vnecdn.net/2022/04/27/422-1651076542-7177-1651076695.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=mAIAKDK1iJGjNYSWgSbUGQ" alt="">
+                                                    <h3 class="news-title">Loạt lợi thế thúc đẩy thị trường bất động sản Phú Yên</h3>
+                                                </a>
+                                            </div>
+                                    </div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            </div>       
+                        </section>
+            
+                        
+                    </section>
+                </div>
+            </main>
+            <footer class="footer">
+                    <div class="footer-container">
+                    <div class="grid wide">
+                        <div class="row footer-first">
+                            <div class="col c-12 md-7 col-big">
+                                <ul class="footer-list">
+                                    <li class="footer-list-item"><a href="#">Trang chủ</a></li>
+                                    <li class="footer-list-item"><a href="#">Video</a></li>
+                                    <li class="footer-list-item"><a href="#">Podcasts</a></li>
+                                    <li class="footer-list-item"><a href="#">Ảnh</a></li>
+                                    <li class="footer-list-item"><a href="#">Infographics</a></li>
+                                    <li class="footer-list-item"><a href="#">Mới nhất</a></li>
+                                    <li class="footer-list-item"><a href="#">Xem nhiều</a></li>
+                                    <li class="footer-list-item"><a href="#">Tin nóng</a></li>
+                                </ul>
+                                <ul class="footer-list">
+                                    <li class="footer-list-item"><a href="#">Thời sự</a></li>
+                                    <li class="footer-list-item"><a href="#">Góc nhìn</a></li>
+                                    <li class="footer-list-item"><a href="#">Thế giới</a></li>
+                                    <li class="footer-list-item"><a href="#">Giải trí</a></li>
+                                    <li class="footer-list-item"><a href="#">Giải trí</a></li>
+                                </ul>
+                                <ul class="footer-list">
+                                    <li class="footer-list-item"><a href="#">Thể thao</a></li>
+                                    <li class="footer-list-item"><a href="#">Pháp luật</a></li>
+                                    <li class="footer-list-item"><a href="#">Giáo dục</a></li>
+                                    <li class="footer-list-item"><a href="#">Sức khỏe</a></li>
+                                    <li class="footer-list-item"><a href="#">Đời sống</a></li>
+                                    <li class="footer-list-item"><a href="#">Du lịch</a></li>
+                            
+                                </ul>
+                                <ul class="footer-list">
+                                    <li class="footer-list-item"><a href="#">Khoa học</a></li>
+                                    <li class="footer-list-item"><a href="#">Số hóa</a></li>
+                                    <li class="footer-list-item"><a href="#">Xe</a></li>
+                                    <li class="footer-list-item"><a href="#">Ý kiến</a></li>
+                                    <li class="footer-list-item"><a href="#">Tâm sự</a></li>
+                                    <li class="footer-list-item"><a href="#">Hài</a></li>
+                                </ul>
+                            </div>
+                            <div class="col c-5 md-2 col-small">
+                                <ul class="footer-list">
+                                    <li class="footer-list-item"><a href="#">Rao vặt</a></li>
+                                    <li class="footer-list-item"><a href="#">Startup</a></li>
+                                    <li class="footer-list-item"><a href="#">Mua ảnh VnExpress</a></li>
+                                    <li class="footer-list-item"><a href="#">VhomeeBox</a></li> 
+                                    <li class="footer-list-item"><a href="#">eBox</a></li>
+                                </ul>
+                            </div>
+                            <div class="col c-7 md-3 col-medi">
+                                <div class="app-contact">
+                                    <h5>Tải ứng dụng</h5>
+                                    <div class="app-download">
+                                        <a class="status"><img
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEWfIk7+/f3///+XADubCkSeHkycEUaWADanOl7GiZvUqrb37PCeFknRoq/Kmafw4ubIj6CpRGTBgpTbusP68/biyNC2ZX2XADqVADSZAD/o0djIkaHYsLyiJ1Pfv8mtSmvt2t+lMVmzYHq8c4mxWHStUG2+eo25bYT+Yi51AAAFGUlEQVR4nO3dfVuqPADHcRgMCR9Qj4SApZXa+3+Hh53uW3JMGzDZQ7/vv3nVPpcCxgZ4RFi5+Iw9S3t7r7JvFE/k273kEdU90P7RqAgX94TTuLCY91/hrLwpzCb2++roNrkhzLa6x6aqSSIUTgPdA1PXthQJTzPd41IXnQmErw69hfXupmoLV07sZf6Phi1hmuselNqKV144D3WPSW3RmRd+OLSfYdEVL9w7tRnWhbwwdk04gdD6ILS/jkIahUY2uz3qDkIaBsVxMTey5zAIbxzI5YXFKjkQc0t3x2KQkOZL9lPf2OrBJYFo7JJCys556Eb8FEnfBIOXFOaZ8T6fESd9heGTDcCaOG9vi1JCGpv/Ef2KHFvDlxJGlSVAn+xa/95KCQsrtkIWObTOMskJN9YISeu4LyOsN8Nvv8LImvG980QZYbS+/AZSVgsDe20GuOA3RClhc6wgyUT3l2xBwbIZYOtMWmehiafivu3rIYQQQk1BCCGE+oMQQgj1ByGEEOoPQggh1B+EEEKov5GFNBq9cc9501O1HLsnpfMWPwnrF2vIvwyw39xTJ2EzUaWhnvOHNgn7zQHbJOw3j2+TsLUZOiYkSb/1NNYIhReLuCQkh5ee69psELKhz/O+axN7C+8epNXml/NT//WlfYXkMNaK4uoYBeGNpb8PFf4Za2lKRIet8+4vFH9uxg1CFoTXL4Zw7CBkQXj9YgjHDkIWhNcv/lXCXd73LLbCC1kfKiyfep7EXsdFoUpp6n/A02wZq5kEMvUsRj0Sfy08K+GK8B8yU/FJNVjIdsYK7gZktNAnH5HjQt/3Bn9ODReS8+A30XThbvDXItOF6eB9zSOECrr8PTJ4Q1S/UuG4S4Y2T5s/2J4Q1C306PBT2NvmymrybJ5QQQWEXYKQBaHyIOwUhCwIlQdhpyBkQag8CDsFIQtC5UHYKQhZECoPwk5ByIJQeYYLFVxhOTFaSPfrwX0cTJ63UHOF5eXvGTj39CvmD1UK3Z8Ddn8e3/W1GAreQrOFSp6QZrCQkHL4O2iukA2lEj7NwSjh3YP6D6W7vZo11A9dI5z+6VnyTANVT0J97DrvbdGve0/GMUro/lp9CEcJQhaE1y+GcOwgZEF4/WIIxw5CFoTXL4Zw7CBkDRDSsdIkfI1XY0XzW+cFjD0T1bVD8ukJx2bq2cSu/Rv7QnT60RXhl/IgeJisS8J6eJv28NwS1ju31r0hHRP6ZM3PdTgnnPLTVa4JfcLf4dM9IT+pauiVzp1rhPzaBuXC2XmaaqgR8utT1K/6mgXjl+fNm7h5uFBHlEIIIYS6gxBCCPUHIYQQ6g9CCCHUH4QQQqg/CCGEUH8QQvjLhCYs5GqlVjgzsmFCetSzzKlTlwHyz8uVEka+3pnrLrX2FDJCrzhYJORvpCElDBOLhPyzLKWEs09rhO3bTEgJvaC0hUhO/PjlhHS2sYNIFq3jtZzQi96JDUSStW9RICn0ojg13VgPftnzqdVfH9Q82dw95GrPL4VX8EsL62NG8HbepVMzy6pTKL6Cv4OQfbkpNCx4kur2Q8w6Ca0MQvv7hcK9a8KQF34MvcedYdEVL5wbeaqpf9GZF6aCLz42V7zyQrJyakOk9WbIC1XcQcycwqotJHuH9jV0RgTC1nU1FrctRUKSbXUPTFWThAiFJJs4sbeh2y+gQEimsaq7pWkspCW5KSRk95KrfDj22NX/yYaLC0YoJKRcPMe6B9q3t/cq+0b5C7HDA6W5aMwGAAAAAElFTkSuQmCC"
+                                            alt=""
+                                        />
+                                        International</a>
+                                        <a class="status"><img
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEWfIk7+/f3///+XADubCkSeHkycEUaWADanOl7GiZvUqrb37PCeFknRoq/Kmafw4ubIj6CpRGTBgpTbusP68/biyNC2ZX2XADqVADSZAD/o0djIkaHYsLyiJ1Pfv8mtSmvt2t+lMVmzYHq8c4mxWHStUG2+eo25bYT+Yi51AAAFGUlEQVR4nO3dfVuqPADHcRgMCR9Qj4SApZXa+3+Hh53uW3JMGzDZQ7/vv3nVPpcCxgZ4RFi5+Iw9S3t7r7JvFE/k273kEdU90P7RqAgX94TTuLCY91/hrLwpzCb2++roNrkhzLa6x6aqSSIUTgPdA1PXthQJTzPd41IXnQmErw69hfXupmoLV07sZf6Phi1hmuselNqKV144D3WPSW3RmRd+OLSfYdEVL9w7tRnWhbwwdk04gdD6ILS/jkIahUY2uz3qDkIaBsVxMTey5zAIbxzI5YXFKjkQc0t3x2KQkOZL9lPf2OrBJYFo7JJCys556Eb8FEnfBIOXFOaZ8T6fESd9heGTDcCaOG9vi1JCGpv/Ef2KHFvDlxJGlSVAn+xa/95KCQsrtkIWObTOMskJN9YISeu4LyOsN8Nvv8LImvG980QZYbS+/AZSVgsDe20GuOA3RClhc6wgyUT3l2xBwbIZYOtMWmehiafivu3rIYQQQk1BCCGE+oMQQgj1ByGEEOoPQggh1B+EEEKov5GFNBq9cc9501O1HLsnpfMWPwnrF2vIvwyw39xTJ2EzUaWhnvOHNgn7zQHbJOw3j2+TsLUZOiYkSb/1NNYIhReLuCQkh5ee69psELKhz/O+axN7C+8epNXml/NT//WlfYXkMNaK4uoYBeGNpb8PFf4Za2lKRIet8+4vFH9uxg1CFoTXL4Zw7CBkQXj9YgjHDkIWhNcv/lXCXd73LLbCC1kfKiyfep7EXsdFoUpp6n/A02wZq5kEMvUsRj0Sfy08K+GK8B8yU/FJNVjIdsYK7gZktNAnH5HjQt/3Bn9ODReS8+A30XThbvDXItOF6eB9zSOECrr8PTJ4Q1S/UuG4S4Y2T5s/2J4Q1C306PBT2NvmymrybJ5QQQWEXYKQBaHyIOwUhCwIlQdhpyBkQag8CDsFIQtC5UHYKQhZECoPwk5ByIJQeYYLFVxhOTFaSPfrwX0cTJ63UHOF5eXvGTj39CvmD1UK3Z8Ddn8e3/W1GAreQrOFSp6QZrCQkHL4O2iukA2lEj7NwSjh3YP6D6W7vZo11A9dI5z+6VnyTANVT0J97DrvbdGve0/GMUro/lp9CEcJQhaE1y+GcOwgZEF4/WIIxw5CFoTXL4Zw7CBkDRDSsdIkfI1XY0XzW+cFjD0T1bVD8ukJx2bq2cSu/Rv7QnT60RXhl/IgeJisS8J6eJv28NwS1ju31r0hHRP6ZM3PdTgnnPLTVa4JfcLf4dM9IT+pauiVzp1rhPzaBuXC2XmaaqgR8utT1K/6mgXjl+fNm7h5uFBHlEIIIYS6gxBCCPUHIYQQ6g9CCCHUH4QQQqg/CCGEUH8QQvjLhCYs5GqlVjgzsmFCetSzzKlTlwHyz8uVEka+3pnrLrX2FDJCrzhYJORvpCElDBOLhPyzLKWEs09rhO3bTEgJvaC0hUhO/PjlhHS2sYNIFq3jtZzQi96JDUSStW9RICn0ojg13VgPftnzqdVfH9Q82dw95GrPL4VX8EsL62NG8HbepVMzy6pTKL6Cv4OQfbkpNCx4kur2Q8w6Ca0MQvv7hcK9a8KQF34MvcedYdEVL5wbeaqpf9GZF6aCLz42V7zyQrJyakOk9WbIC1XcQcycwqotJHuH9jV0RgTC1nU1FrctRUKSbXUPTFWThAiFJJs4sbeh2y+gQEimsaq7pWkspCW5KSRk95KrfDj22NX/yYaLC0YoJKRcPMe6B9q3t/cq+0b5C7HDA6W5aMwGAAAAAElFTkSuQmCC"
+                                            alt=""
+                                        />
+                                        International</a>
+                                    </div>
+                                    <h5>Liên hệ</h5>
+                                    <div class="contact">
+                                        <a href="#">Tòa soạn</a>
+                                        <a href="#">Quảng cáo</a>
+                                        <a href="#">Hợp tác bản quyền</a>
+                                    </div>
+                                </div>
+                                <div class="hot_line">
+                                    <h5>Đường dây nóng</h5>
+                                    <div class="hot_line-phone">
+                                        <div class="phone">
+                                            <h3 class="phone-num">083.888.0123</h3>
+                                            <p class="phone-adress">(Hà Nội)</p>
+                                        </div>
+                                        <div class="phone">
+                                            <h3 class="phone-num">082.233.3555</h3>
+                                            <p class="phone-adress">(TP. Hồ Chí Minh)</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                       </div>
+                       <div class="row footer-second">
+                            <div class="footer-logo">
+                                <h3>Báo điện tử</h3>
+                                <img
+                                    src="https://s1.vnecdn.net/vnexpress/restruct/i/v588/v2_2019/pc/graphics/logo.svg"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="right-follow">
+                                <a href="#">RSS</a>
+                                <span class="follow">Theo dõi VnExpress trên</span>
+                                <a href="#" style="--color-soc:#3b5999" class="follow-item follow-facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" style="--color-soc:#55acee" class="follow-item follow-twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="--color-soc:#c00" class="follow-item follow-youtube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                       </div>
+                       <div class="row footer-third">
+                           <p class="pr20">
+                               <strong>Báo tiếng Việt nhiều người xem nhất</strong>
+                               <br>
+                               Thuộc Bộ Khoa học Công nghệ
+                               <br>
+                               Số giấy phép:548/GP-BTTTT ngày 24/08/2021
+                           </p>
+                           <p class="pr20">
+                            Tổng biên tập: Phạm Hiếu
+                            <br>
+                            Địa chỉ: Tầng 5, Tòa nhà FPT, 17 phố Duy Tân, Cầu Giấy, Hà Nội
+                            <br>
+                            Điện thoại: 024 7300 8899 - máy lẻ 4500
+                        </p>
+                        <p>
+                            © 1997-2022. Toàn bộ bản quyền thuộc VnExpress
+                        </p>
+                       </div>
+                   </div>
+                </div>
+            </footer>
+            <section class="modal-auth">
+               <div class="modal-container">
+                <div class="modal__header">
+                    <div class="signin-btn">Đăng nhập</div>
+                    <div class="signup-btn">Đăng ký</div>
+                </div>
+                <div class="modal-content grid">
+                    <div class="modal__signin row">
+                        <div class="col c-7">
+                            <h3 class="title">Đăng nhập với Email</h3>
+                            <form action="">
+                                <input type="email" placeholder ="Email" required>
+                                <input type="password" placeholder="Mật khẩu" required>
+                                <button class="btn-submit">Đăng nhập</button>
+                            </form>
+                            <a href="#" class="forgot-password">Lấy lại mật khẩu</a>
+                        </div>
+                        <div class="col c-5">
+                            <h3 class="title">Đăng nhập với</h3>
+                            <div class="social-box">
+                                <a class="btn btn-social">Facebook</a>
+                                <a class="btn btn-social">Google</a>
+                                <a class="btn btn-social">Apple</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__signup row">
+                        <div class="col c-7">
+                            <h3 class="title">Tạo tài khoản VnExpress<br>Để sử dụng đầy đủ tính năng đọc báo và tham gia<br>cộng đồng hơn 4 triệu thành viên</h3>
+                            <form action="">
+                                <input type="email" placeholder ="Nhập email" required>
+                                <input type="password" placeholder="Tạo mật khẩu" required>
+                                <button class="btn-submit">Tạo tài khoản</button>
+                            </form>
+                        </div>
+                        <div class="col c-5">
+                            <h3 class="title">Tạo tài khoản với</h3>
+                            <div class="social-box">
+                                <a class="btn btn-social">Facebook</a>
+                                <a class="btn btn-social">Google</a>
+                                <a class="btn btn-social">Apple</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+            </section>
+        </div>
+        <section class="all-menu-section">
+            <div class="all-menu grid wide">
+                <div class="row bdbt">
+                    <h3>Tất cả chuyên mục</h3>
+                    <button class="btn-close-all-menu">Đóng</button>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col c-10 all-menu-left">
+                        <div class="row no-gutters"></div>
+                    </div>
+                    <div class="col c-2 all-menu-right">
+                        <div class="all-menu-right-item">
+                            <a href="#" class="content-right-link">Podcasts</a>
+                            <a href="#" class="content-right-link">Ảnh</a>
+                            <a href="#" class="content-right-link"
+                                >Infographics</a
+                            >
+                        </div>
+                        <div class="all-menu-right-item">
+                            <a href="#" class="content-right-link">Mới nhất</a>
+                            <a href="#" class="content-right-link">Xem nhiều</a>
+                            <a href="#" class="content-right-link">Tin nóng</a>
+                        </div>
+                        <div class="all-menu-right-item">
+                            <a href="#" class="content-right-link">Rao vặt</a>
+                            <a href="#" class="content-right-link">Startup</a>
+                            <a href="#" class="content-right-link"
+                                >Mua ảnh VnExpress</a
+                            >
+                            <a href="#" class="content-right-link">Vhome</a>
+                            <a href="#" class="content-right-link">eBox</a>
+                        </div>
+                        <div class="all-menu-right-item">
+                            <h4>Liên hệ</h4>
+                            <a href="#" class="content-right-link"
+                                ><i class="fas fa-envelope"></i>Tòa soạn</a
+                            >
+                            <a href="#" class="content-right-link">Quảng cáo</a>
+                            <a href="#" class="content-right-link"
+                                >Hợp tác bản quyền</a
+                            >
+                        </div>
+                        <div class="all-menu-right-item">
+                            <h4>Tải ứng dụng</h4>
+                            <a href="#" class="content-right-link">VnExpress</a>
+                            <a href="#" class="content-right-link"
+                                >International</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <script src="./index.js"></script>
+        <script>
+            const swiper = new Swiper(".covidcare.swiper", {
+                slidesPerView: 6,
+                direction: "horizontal",
+                loop: false,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+            const swiper1 = new Swiper(".section-picture .swiper", {
+                slidesPerView: 1,
+                direction: "vertical",
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                }
+            });
+            const swiper2 = new Swiper(".mySwiper", {
+                slidesPerView: 2,
+                spaceBetween:20,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                });
+            const swiper3 = new Swiper(".section-special .section-special-star", {
+                slidesPerView: 1,
+                direction: "horizontal",
+                loop: false,
+            });
+            const swiper4 = new Swiper(".section-special .section-special-international", {
+                slidesPerView: 1,
+                direction: "horizontal",
+                loop: false,
+            });
+            const swiper5 = new Swiper(".section-business .business", {
+                slidesPerView: 4,
+                direction: "horizontal",
+                loop: false,
+                spaceBetween:20,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+    </body>
+</html>

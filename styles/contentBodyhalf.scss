@@ -1,0 +1,83 @@
+.content-category-full {
+    min-height: 560px;
+    background-color: #fcfaf6;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    & .content-category-body {
+        flex: 1;
+        & .video-playing {
+            height: 100%;
+            & video {
+                width: 100%;
+                height: 90%;
+            }
+            & .video-info {
+                height: 10%;
+                margin: auto;
+            }
+        }
+        & .video-list {
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            max-height: 560px;
+            &::-webkit-scrollbar {
+                width: 2px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #757575;
+                border-radius: 100rem;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: #fcfaf6;
+            }
+            & .video-item {
+                display: flex;
+                align-items: center;
+                gap: 0 10px;
+                padding-bottom: 10px;
+                & picture {
+                    position: relative;
+                    width: 120px;
+                    height: 70px;
+                    & > img {
+                        object-fit: cover;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    & .video-duration {
+                        position: absolute;
+                        padding: 5px;
+                        background-color: #000;
+                        color: #fff;
+                        bottom: 4px;
+                        left: 4px;
+                    }
+                }
+                & .video-info {
+                    flex: 1;
+                    & h3 {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1123.98px) {
+    .content-category-full {
+        &.video-category .content-category-body {
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+        }
+    }
+}

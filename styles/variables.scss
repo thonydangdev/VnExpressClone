@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap");
+$Merrifont: "Merriweather", serif;
+$text-color: #222222;
+$height-top-header: 32px;
+$height-header-sticky: 56px;
+$primary-color: #9f224e;
+$active-primary-color: #b52759;
+.dodge {
+    width: 1px;
+    height: 26px;
+    background-color: #e5e5e5;
+}
+.bdbt {
+    border-bottom: 2px solid #e5e5e5;
+}
+.bdgray {
+    border: 1px solid #e5e5e5;
+}
+.bdleft {
+    border-left: 3px solid #e5e5e5;
+}
+.bdright {
+    border-right: 1px solid #e5e5e5;
+}
+.pb20 {
+    padding-bottom: 20px;
+}
+.pr20 {
+    padding-right: 20px;
+}
+.pr0 {
+    padding-right: 0;
+}
+.pl12 {
+    padding-left: 12px;
+}
+.mgr-12 {
+    margin-right: -12px;
+}
+.widthauto {
+    width: auto !important;
+}
+.status {
+    padding: 0 10px;
+    height: $height-top-header;
+    display: flex;
+    align-items: center;
+    gap: 0 6px;
+    color: #333;
+
+    &:hover {
+        color: rgba(0, 0, 0, 0.3);
+    }
+    & img {
+        width: 15px;
+        height: 15px;
+        object-fit: cover;
+    }
+}
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    font-size: 16px;
+    font-family: arial, sans-serif;
+    min-height: 200vh;
+    overflow-x: hidden;
+    font-weight: 400;
+    color: $text-color;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: $text-color;
+}
+button {
+    border: 0;
+    background-color: #fff;
+    color: #000;
+}
+.content-news-box {
+    border-bottom: 2px solid #e5e5e5;
+    &-thumb {
+        padding: 14px 0;
+        border-bottom: 2px solid #e5e5e5;
+
+        & img {
+            width: 100%;
+            height: 50px;
+            object-fit: cover;
+        }
+    }
+    & a {
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+
+        & .news-intro {
+            display: flex;
+            padding: 16px 0;
+            gap: 0 10px;
+            & img {
+                width: 144px;
+                height: 85px;
+                object-fit: cover;
+            }
+            & p.news-description {
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: break-word;
+            }
+        }
+    }
+}

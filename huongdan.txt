@@ -1,0 +1,2 @@
+- Do em code thuần và chỉ sử dụng Swiper JS file cdn nên mình không cần set up.
+- Mở bằng Live Server

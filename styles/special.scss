@@ -1,0 +1,103 @@
+.section-special {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    gap: 0 50px;
+    & .section-special-logo {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        top: 6px;
+        left: 6px;
+        & a {
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+            & img {
+                width: 24px;
+                height: 24px;
+                object-fit: cover;
+            }
+            & > span {
+                color: #fff;
+                font-size: 12px;
+            }
+        }
+    }
+
+    & .swiper {
+        width: 50%;
+        margin: 0;
+        position: relative;
+
+        & .swiper-slide {
+            & .news-box {
+                height: 154px;
+                & img {
+                    width: 260px;
+                    height: 100%;
+                }
+                & .news-info {
+                    flex: 1;
+                    & .news-title {
+                        margin-bottom: 5px;
+                        font-size: 16px;
+                    }
+                }
+            }
+            & a {
+                display: flex;
+                gap: 0 20px;
+            }
+        }
+    }
+}
+.section-business {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #e5e5e5;
+    & .content-category-header {
+        & .main-cate {
+            & a {
+                font-size: 16px;
+            }
+        }
+    }
+    & .content-category-body {
+        margin-top: 10px;
+    }
+    & .swiper-slide {
+        & img {
+            width: 100%;
+        }
+        & .news-title {
+            font-size: 14px;
+        }
+    }
+}
+@media screen and (min-width: 1124px) {
+    .section-special {
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 80%;
+            left: 50%;
+            top: 10%;
+            background-color: #e5e5e5;
+        }
+    }
+}
+
+@media screen and (max-width: 1123px) {
+    .section-special {
+        gap: 50px;
+        flex-wrap: wrap;
+        & .swiper {
+            width: 100%;
+        }
+    }
+}

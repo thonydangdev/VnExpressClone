@@ -1,0 +1,80 @@
+.content-body {
+    & .content-category-full-v2 {
+        border-bottom: 1px solid #e5e5e5;
+        padding-bottom: 20px;
+        & .content-category-body {
+            display: grid;
+            grid-template-columns: 4fr 1.5fr 2fr;
+            gap: 0px 36px;
+            max-height: 520px;
+            & .news-box {
+                & .news-title {
+                    font-size: 16px;
+                    line-height: calc(24 / 16);
+                }
+            }
+            & > .news-box {
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 1px;
+                    height: 90%;
+                    background-color: #e5e5e5;
+                    top: 0;
+                    bottom: 0;
+                    right: -18px;
+                }
+            }
+
+            & .news-list:nth-child(2) {
+                display: grid;
+                grid-template-rows: repeat(2, 1fr);
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 1px;
+                    height: 90%;
+                    background-color: #e5e5e5;
+                    top: 0;
+                    bottom: 0;
+                    right: -18px;
+                }
+            }
+            & .news-list:nth-child(3) {
+                display: grid;
+                grid-template-rows: repeat(4, 1fr);
+                & .news-box {
+                    padding-top: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid #e5e5e5;
+                    & h3 {
+                        margin: 0;
+                        -webkit-line-clamp: 5;
+                    }
+                    & img {
+                        width: 100px;
+                        height: 60px;
+                        object-fit: cover;
+                    }
+                }
+            }
+            & img {
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1023.98px) {
+    .content-body .content-category-full-v2 {
+        & .content-category-body {
+            max-height: none !important;
+            grid-template-columns: 1fr 1fr;
+            & .news-list:nth-child(3) {
+                grid-column: 1/3;
+            }
+        }
+    }
+}
